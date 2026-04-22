@@ -1,29 +1,34 @@
 import java.util.List;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class BudgetApp {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        BudgetCategory concerts = new BudgetCategory("Concerts", 200.0, 400.0);
+        List<BudgetCategory> tracker = new ArrayList<>();
+        /*BudgetCategory concerts = new BudgetCategory("Concerts", 200.0, 400.0);
         System.out.println(concerts);
         System.out.println(concerts.getName());
         System.out.println(concerts.getLimit());
-        System.out.println(concerts.getSpent());
+        System.out.println(concerts.getSpent());*/
 
-        /*while(scan.hasNextLine()) {
+        while(scan.hasNextLine()) {
             String category = scan.nextLine();
 
             double limit = scan.nextDouble();
             double spent = scan.nextDouble();
-
+            tracker.add(new BudgetCategory(category, limit, spent));
             // Consume \n after spent input 
             if(scan.hasNextLine()) scan.nextLine();
 
             String limitString = String.format("$%.2f", limit);
             String spentString = String.format("$%.2f", spent);
-            System.out.println("The budget limit for " + category + " was: " + limitString + 
-                               " but the actual spend was " + spentString);
-        }*/
+            /*System.out.println("The budget limit for " + category + " was: " + limitString + 
+                               " but the actual spend was " + spentString);*/
+        }
+        for(int i=0; i<tracker.size(); i++){
+            System.out.println(tracker.get(i));
+        }
     }
 
     /**
