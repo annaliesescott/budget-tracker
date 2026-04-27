@@ -33,6 +33,9 @@ public class BudgetApp {
 
         Collections.sort(tracker);
         System.out.println(tracker);
+
+        Collections.sort(tracker, Collections.reverseOrder());
+        System.out.println(tracker);
     }
 
     /**
@@ -51,6 +54,12 @@ public class BudgetApp {
         // TODO: You will implement this method in Wave 4
         // Note that this method SHOULD NOT have a print statement.
         // It should instead return the value.
-        return -1;
+        double total = 0;
+
+        for(int i=0; i<categories.size()-1; i++){
+           total += categories.get(i).compare();
+
+        }
+        return (int) total;
     }
 }
